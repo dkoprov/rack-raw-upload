@@ -50,7 +50,7 @@ module Rack
         tempfile.rewind
       end
       fake_file = {
-        :filename => env['HTTP_X_FILE_NAME'],
+        :filename => env['HTTP_X_FILE_NAME'].force_encoding('UTF-8'),
         :type => env['CONTENT_TYPE'],
         :tempfile => tempfile,
       }
